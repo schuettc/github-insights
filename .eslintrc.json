@@ -224,6 +224,35 @@
   "overrides": [
     {
       "files": [
+        "src/resources/**/*.ts"
+      ],
+      "rules": {
+        "indent": "off",
+        "@typescript-eslint/indent": "off"
+      }
+    },
+    {
+      "files": [
+        "./*.ts",
+        "./**/*.ts"
+      ],
+      "rules": {
+        "@typescript-eslint/no-require-imports": "off",
+        "import/no-extraneous-dependencies": "off",
+        "import/no-unresolved": "off"
+      }
+    },
+    {
+      "files": [
+        "src/**/*.ts"
+      ],
+      "rules": {
+        "indent": "off",
+        "@typescript-eslint/indent": "off"
+      }
+    },
+    {
+      "files": [
         ".projenrc.ts"
       ],
       "rules": {
