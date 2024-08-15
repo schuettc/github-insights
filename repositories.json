@@ -2,5 +2,13 @@
   {
     "owner": "aws-samples",
     "repo": "anthropic-on-aws"
+  },
+  {
+    "owner": "aws-samples",
+    "repo": "mistral-on-aws"
+  },
+  {
+    "owner": "aws-samples",
+    "repo": "Meta-Llama-on-AWS"
   }
 ]
