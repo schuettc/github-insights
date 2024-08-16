@@ -6,7 +6,7 @@ const AUTOMATION_TOKEN = 'PROJEN_GITHUB_TOKEN';
 const project = new awscdk.AwsCdkTypeScriptApp({
   cdkVersion: '2.118.0',
   license: 'MIT-0',
-  copyrightOwner: 'Amazon',
+  copyrightOwner: 'Court Schuett',
   appEntrypoint: 'github-insights.ts',
   jest: false,
   projenrcTs: true,
