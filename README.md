@@ -374,6 +374,8 @@ To run these queries:
 
 The partition projection set up in the Glue table definition allows Athena to efficiently query the data without the need for manual partition management, making it easy to analyze historical trends and current repository states.
 
+![ExampleQuery](/images/ExampleQuery.png)
+
 # Deploying
 
 ## Configuration Files
