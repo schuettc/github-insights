@@ -53,6 +53,10 @@ export class GlueResources extends Construct {
       { name: 'averagetimetoclosepr', type: 'double' },
       { name: 'averagetimetocloseissue', type: 'double' },
       { name: 'date', type: 'string' },
+      { name: 'uniquevisitors', type: 'bigint' },
+      { name: 'totalviews', type: 'bigint' },
+      { name: 'uniquecloners', type: 'bigint' },
+      { name: 'totalclones', type: 'bigint' },
     ];
 
     // Define partition keys

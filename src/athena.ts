@@ -31,7 +31,11 @@ export class AthenaResources extends Construct {
               AVG(stars) as avg_stars, 
               AVG(forks) as avg_forks,
               AVG(openissues) as avg_open_issues,
-              AVG(commitslastmonth) as avg_commits_last_month
+              AVG(commitslastmonth) as avg_commits_last_month,
+              AVG(uniquevisitors) as avg_unique_visitors,
+              AVG(totalviews) as avg_total_views,
+              AVG(uniquecloners) as avg_unique_cloners,
+              AVG(totalclones) as avg_total_clones
             FROM 
               github_insights
             WHERE 

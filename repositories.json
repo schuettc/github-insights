@@ -1,6 +1,22 @@
 [
   {
-    "owner": "schuettc",
-    "repo": "github-insights"
+    "owner": "aws-samples",
+    "repo": "cohere-on-aws"
+  },
+  {
+    "owner": "aws-samples",
+    "repo": "mistral-on-aws"
+  },
+  {
+    "owner": "aws-samples",
+    "repo": "anthropic-on-aws"
+  },
+  {
+    "owner": "aws-samples",
+    "repo": "Meta-Llama-on-AWS"
+  },
+  {
+    "owner": "aws-samples",
+    "repo": "AI21-on-AWS"
   }
 ]

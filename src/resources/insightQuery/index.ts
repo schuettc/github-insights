@@ -44,6 +44,10 @@ interface RepoInsights {
   averageTimeToMergePR: number;
   averageTimeToClosePR: number;
   averageTimeToCloseIssue: number;
+  uniqueVisitors: number;
+  totalViews: number;
+  uniqueCloners: number;
+  totalClones: number;
 }
 
 interface Repository {
@@ -113,6 +117,8 @@ async function fetchRepositoryInsights(
             contributorsData,
             releasesData,
             commitsData,
+            viewsData,
+            clonesData,
           ] = await Promise.all([
             octokit.rest.issues.listForRepo({ owner, repo, state: 'all' }),
             octokit.rest.pulls.list({ owner, repo, state: 'all' }),
@@ -121,6 +127,8 @@ async function fetchRepositoryInsights(
               .getLatestRelease({ owner, repo })
               .catch(() => null),
             octokit.rest.repos.getCommitActivityStats({ owner, repo }),
+            octokit.rest.repos.getViews({ owner, repo }),
+            octokit.rest.repos.getClones({ owner, repo }),
           ]);
 
           const closedIssues = issuesData.data.filter(
@@ -171,6 +179,11 @@ async function fetchRepositoryInsights(
             'closed_at',
           );
 
+          const uniqueVisitors = viewsData.data.uniques;
+          const totalViews = viewsData.data.count;
+          const uniqueCloners = clonesData.data.uniques;
+          const totalClones = clonesData.data.count;
+
           console.log(`Successfully fetched data for ${owner}/${repo}`);
           return {
             repoName: `${owner}/${repo}`,
@@ -198,6 +211,10 @@ async function fetchRepositoryInsights(
             averageTimeToMergePR,
             averageTimeToClosePR,
             averageTimeToCloseIssue,
+            uniqueVisitors,
+            totalViews,
+            uniqueCloners,
+            totalClones,
           };
         } catch (error) {
           console.error(`Error fetching data for ${owner}/${repo}:`, error);
@@ -289,6 +306,10 @@ async function uploadInsightsToS3(insights: RepoInsights[]): Promise<void> {
     averageTimeToMergePR: { type: 'DOUBLE' },
     averageTimeToClosePR: { type: 'DOUBLE' },
     averageTimeToCloseIssue: { type: 'DOUBLE' },
+    uniqueVisitors: { type: 'INT64' },
+    totalViews: { type: 'INT64' },
+    uniqueCloners: { type: 'INT64' },
+    totalClones: { type: 'INT64' },
     date: { type: 'UTF8' },
   });
 
